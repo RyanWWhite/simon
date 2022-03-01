@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>simon</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+        <p>simon</p>
+
+        <button id="button">press me</button>       
+        
+        <script>
+            const button = document.getElementById("button")
+            
+            button.addEventListener('click', event => {
+                button.style.backgroundColor = "green"
+                setTimeout(() => {
+                    button.style.backgroundColor = "red"
+                }, 1000)
+            });
+        </script>
+</body>
+</html>
