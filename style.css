@@ -1,11 +1,25 @@
 body {
-  background-color: white;
-  text-align: center;
-  margin: 0;
-  padding: 3rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
 }
 
-.conatiner {
-  display: flex;
+.container {
+  display: grid;
+  margin: 1em;
+}
+
+.buttons {
+  display: inline-block;
+  width: 20%;
+}
+
+.btn {
+  margin: 1rem;
+  transition: all 0.5s ease;
+  transform: scale(1);
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: scale(1.25);
+  filter: brightness(120%);
 }

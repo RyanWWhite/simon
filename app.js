@@ -1,51 +1,80 @@
 const minecraft = document.getElementById("minecraft");
-const oof = new Audio(
+const minercaftAudio = new Audio(
   "https://www.myinstants.com/media/sounds/steve-old-hurt-sound_XKZxUk4.mp3"
 );
 
 minecraft.addEventListener("click", (e) => {
-  audio.play();
+  minercaftAudio.play();
 });
 
 const nut = document.getElementById("nut");
-const audio = new Audio(
+const nutAudio = new Audio(
   "https://www.myinstants.com/media/sounds/deez-nuts-sound-effect-free-download-hd-.mp3"
 );
 
-minecraft.addEventListener("click", (e) => {
-  audio.play();
+nut.addEventListener("click", (e) => {
+  nutAudio.play();
 });
 
 const roblox = document.getElementById("roblox");
-const oofblox = new Audio(
+const robloxAudio = new Audio(
   "https://www.myinstants.com/media/sounds/roblox-death-sound_1.mp3"
 );
 
-minecraft.addEventListener("click", (e) => {
-  audio.play();
+roblox.addEventListener("click", (e) => {
+  robloxAudio.play();
 });
 
 const windows = document.getElementById("windows");
-const shutdown = new Audio("https://www.myinstants.com/media/sounds/erro.mp3");
+const windowsAudio = new Audio(
+  "https://www.myinstants.com/media/sounds/erro.mp3"
+);
 
-minecraft.addEventListener("click", (e) => {
-  audio.play();
+windows.addEventListener("click", (e) => {
+  windowsAudio.play();
 });
 
 const fbi = document.getElementById("fbi");
-const openup = new Audio(
+const fbiAudio = new Audio(
   "https://www.myinstants.com/media/sounds/fbi-open-up-sfx.mp3"
 );
 
-minecraft.addEventListener("click", (e) => {
-  audio.play();
+fbi.addEventListener("click", (e) => {
+  fbiAudio.play();
 });
 
 const damage = document.getElementById("damage");
-const emotional = new Audio(
+const damageAudio = new Audio(
   "https://www.myinstants.com/media/sounds/emotional-damage-meme.mp3"
 );
 
-minecraft.addEventListener("click", (e) => {
-  audio.play();
+damage.addEventListener("click", (e) => {
+  damageAudio.play();
+});
+
+const chewbacca = document.getElementById("chewbacca");
+const chewbaccaAudio = new Audio(
+  "https://www.myinstants.com/media/sounds/chewbacca.swf.mp3"
+);
+
+chewbacca.addEventListener("click", (e) => {
+  chewbaccaAudio.play();
+});
+
+const amongus = document.getElementById("amongus");
+const amongusAudio = new Audio(
+  "https://www.myinstants.com/media/sounds/among.mp3"
+);
+
+damage.addEventListener("click", (e) => {
+  damageAudio.play();
+});
+
+const dababy = document.getElementById("dababy");
+const dababyAudio = new Audio(
+  "https://www.myinstants.com/media/sounds/dababy-suge-lyrics-1.mp3"
+);
+
+damage.addEventListener("click", (e) => {
+  damageAudio.play();
 });
