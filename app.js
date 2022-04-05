@@ -9,7 +9,7 @@ function addSound(name, audioSrc, imageSrc) {
   container.appendChild(button);
 
   const img = document.createElement("img");
-  img.src = imageSrc;
+  img.src = `images/${imageSrc}`;
 
   button.appendChild(img);
 
