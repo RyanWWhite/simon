@@ -1,21 +1,38 @@
+html,
 body {
+  height: 100%; 
+}
+
+body {
+  margin: 0;
   font-family: sans-serif;
 }
 
-.container {
-  display: grid;
-  margin: 1em;
+#container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.buttons {
-  display: inline-block;
-  width: 20%;
+#buttons {
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn {
+  height: 100px;
+  width: 150px;
   margin: 1rem;
   transition: all 0.5s ease;
   transform: scale(1);
+}
+
+.btn img {
+  height: 100%;
 }
 
 .btn:hover {
