@@ -61,5 +61,35 @@ const sounds = [
 ];
 
 for (let i = 0; i < sounds.length; i++) {
+  console.log("addSound");
   addSound(sounds[i].name, sounds[i].audioSrc, sounds[i].imageSrc);
 }
+
+function playSounds(soundID) {
+  if (soundID > 8) {
+    return;
+  }
+  const sound = sounds[soundID];
+  const audio = new Audio(
+    `https://www.myinstants.com/media/sounds/${sound.audioSrc}.mp3`
+  );
+
+  audio.play();
+  //background code//
+  setTimeout(playSounds, 1000, soundID + 1);
+}
+
+// function playSounds(sounds) {
+//   const sound = sounds[0];
+//   const audio = new Audio(
+//     `https://www.myinstants.com/media/sounds/${sounds.audioSrc}.mp3`
+//   );
+
+//   audio.play();
+// }
+
+document.getElementById("test").addEventListener("click", (e) => {
+  //playSounds(test);
+  console.log("button");
+  playSounds(0);
+});
