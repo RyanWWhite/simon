@@ -61,12 +61,11 @@ const sounds = [
 ];
 
 for (let i = 0; i < sounds.length; i++) {
-  console.log("addSound");
   addSound(sounds[i].name, sounds[i].audioSrc, sounds[i].imageSrc);
 }
 
 function playSounds(soundID) {
-  if (soundID > 8) {
+  if (soundID > sounds.length - 1) {
     return;
   }
   const sound = sounds[soundID];
@@ -74,22 +73,20 @@ function playSounds(soundID) {
     `https://www.myinstants.com/media/sounds/${sound.audioSrc}.mp3`
   );
 
+  var sounds = document.getElementById("button");
+  button.style.backgroundColor;
+
   audio.play();
-  //background code//
-  setTimeout(playSounds, 1000, soundID + 1);
+  audio.onended = () => {
+    setTimeout(playSounds, 1000, soundID + 1);
+  };
 }
 
-// function playSounds(sounds) {
-//   const sound = sounds[0];
-//   const audio = new Audio(
-//     `https://www.myinstants.com/media/sounds/${sounds.audioSrc}.mp3`
-//   );
+function generateNextSound() {
+  var sound = sounds[Math.floor(Math.random() * sounds.length)];
+  console.log("generateNextSound");
+}
 
-//   audio.play();
-// }
-
-document.getElementById("test").addEventListener("click", (e) => {
-  //playSounds(test);
-  console.log("button");
+document.getElementById("start").addEventListener("click", (e) => {
   playSounds(0);
 });

@@ -6,6 +6,7 @@ body {
 body {
   margin: 0;
   font-family: sans-serif;
+  background: linear-gradient(rgb(37, 188, 243), white);
 }
 
 #container {
@@ -21,6 +22,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  filter: drop-shadow(5px 5px 10px rgb(11, 11, 11));
 }
 
 .btn {
@@ -39,4 +41,27 @@ body {
   cursor: pointer;
   transform: scale(1.25);
   filter: brightness(120%);
+}
+
+.start {
+  margin: auto;
+  height: 60px;
+  width: 200px;
+  font-size: 150%;
+  font-family: 'Bebas Neue', cursive;
+  text-transform: uppercase;
+  justify-content: center;
+  filter: drop-shadow(0px 5px 10px rgb(11, 11, 11));
+  background-color:#ff0000;
+  color: #fff;
+  border:none;
+}
+
+.start:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.start:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
