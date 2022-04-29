@@ -72,12 +72,14 @@ function playSounds(soundID) {
   const audio = new Audio(
     `https://www.myinstants.com/media/sounds/${sound.audioSrc}.mp3`
   );
+  audio.volume = 0.25;
 
-  var sounds = document.getElementById("button");
-  button.style.backgroundColor;
+  const button = document.getElementById(sound.name);
+  button.style.backgroundColor = "white";
 
   audio.play();
   audio.onended = () => {
+    button.style.backgroundColor = "white";
     setTimeout(playSounds, 1000, soundID + 1);
   };
 }
