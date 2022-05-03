@@ -75,7 +75,7 @@ function playSounds(soundID) {
   audio.volume = 0.25;
 
   const button = document.getElementById(sound.name);
-  button.style.backgroundColor = "white";
+  button.style.backgroundColor = "red";
 
   audio.play();
   audio.onended = () => {
@@ -85,8 +85,7 @@ function playSounds(soundID) {
 }
 
 function generateNextSound() {
-  var sound = sounds[Math.floor(Math.random() * sounds.length)];
-  console.log("generateNextSound");
+  return sounds[Math.floor(Math.random() * sounds.length)];
 }
 
 document.getElementById("start").addEventListener("click", (e) => {

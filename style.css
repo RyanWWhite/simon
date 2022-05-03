@@ -44,7 +44,7 @@ body {
 .btn:hover {
   cursor: pointer;
   transform: scale(1.25);
-  filter: brightness(120%);
+  filter: brightness(110%);
 }
 
 #start {
@@ -52,6 +52,7 @@ body {
   height: 60px;
   width: 200px;
   font-size: 150%;
+  transition: all 0.5s ease;
   font-family: "Bebas Neue", cursive;
   text-transform: uppercase;
   justify-content: center;
@@ -62,6 +63,8 @@ body {
 }
 
 #start:hover {
+  cursor: pointer;
+  transform: scale(1.2);
   background-color: rgba(255, 0, 0, 1);
 }
 
