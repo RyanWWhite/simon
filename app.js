@@ -44,9 +44,9 @@ const sounds = [
   { name: "fbi", audioSrc: "fbi-open-up-sfx", imageSrc: "fbi.png" },
 
   {
-    name: "damage",
-    audioSrc: "emotional-damage-meme",
-    imageSrc: "damage.jpg",
+    name: "dog",
+    audioSrc: "yt1s_wU4BGgD",
+    imageSrc: "dog.jpeg",
   },
 
   {
@@ -63,12 +63,13 @@ const sounds = [
 for (let i = 0; i < sounds.length; i++) {
   addSound(sounds[i].name, sounds[i].audioSrc, sounds[i].imageSrc);
 }
+const gameState = [3, 2, 6, 0, 7, 8, 4, 1, 5];
 
-function playSounds(soundID) {
-  if (soundID > sounds.length - 1) {
-    return;
-  }
-  const sound = sounds[soundID];
+function playSounds(currentGameStateIndex) {
+  // //if (soundID > sounds.length - 1) {
+  //   return;
+  // }
+  const sound = sounds[gameState[currentGameStateIndex]];
   const audio = new Audio(
     `https://www.myinstants.com/media/sounds/${sound.audioSrc}.mp3`
   );
@@ -80,8 +81,12 @@ function playSounds(soundID) {
   audio.play();
   audio.onended = () => {
     button.style.backgroundColor = "white";
-    setTimeout(playSounds, 1000, soundID + 1);
+    setTimeout(playSounds, 1000, currentGameStateIndex + 1);
   };
+}
+
+function gameState() {
+  document.getElementById("game");
 }
 
 function generateNextSound() {
