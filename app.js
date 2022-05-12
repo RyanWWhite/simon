@@ -1,4 +1,5 @@
 let state = "start";
+const gameState = [];
 
 function addSound(name, audioSrc, imageSrc) {
   const container = document.createElement("div");
@@ -30,8 +31,11 @@ function addSound(name, audioSrc, imageSrc) {
     }
 
     if (state === "input") {
+      const expectedSound = sounds[gameState[currentGameStateIndex]];
       alert("you have lost!");
     }
+
+    displayDebug();
   });
 
   document.getElementById("buttons").appendChild(container);
@@ -100,10 +104,10 @@ const sounds = [
 for (let i = 0; i < sounds.length; i++) {
   addSound(sounds[i].name, sounds[i].audioSrc, sounds[i].imageSrc);
 }
-const gameState = [];
 
 function playGameState(currentGameStateIndex) {
   if (currentGameStateIndex > gameState.length - 1) {
+    currentGameStateIndex = 0;
     state = "input";
     displayDebug();
     return;
@@ -117,8 +121,9 @@ function playGameState(currentGameStateIndex) {
 
   audio.play();
   audio.onended = () => {
+    currentGameStateIndex += 1;
     button.style.backgroundColor = "white";
-    setTimeout(playGameState, 1000, currentGameStateIndex + 1);
+    setTimeout(playGameState, 500, currentGameStateIndex + 1);
   };
 
   displayDebug();
