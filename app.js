@@ -1,3 +1,5 @@
+let state = "start";
+
 function addSound(name, audioSrc, imageSrc) {
   const container = document.createElement("div");
   container.classList.add("meme");
@@ -13,62 +15,99 @@ function addSound(name, audioSrc, imageSrc) {
 
   button.appendChild(img);
 
-  const buttonAudio = new Audio(
-    `https://www.myinstants.com/media/sounds/${audioSrc}.mp3`
-  );
+  const buttonAudio = new Audio(audioSrc);
+
+  buttonAudio.volume = 0.25;
 
   button.addEventListener("click", (e) => {
-    buttonAudio.play();
+    if (state === "start" || state === "input") {
+      button.style.backgroundColor = "red";
+
+      buttonAudio.play();
+      buttonAudio.onended = () => {
+        button.style.backgroundColor = "white";
+      };
+    }
+
+    if (state === "input") {
+      alert("you have lost!");
+    }
   });
 
   document.getElementById("buttons").appendChild(container);
 }
 
+function myinstantsSound(soundName) {
+  return `https://www.myinstants.com/media/sounds/${soundName}.mp3`;
+}
+
 const sounds = [
   {
     name: "minecraft",
-    audioSrc: "steve-old-hurt-sound_XKZxUk4",
+    audioSrc: myinstantsSound("steve-old-hurt-sound_XKZxUk4"),
     imageSrc: "steve.png",
   },
 
   {
     name: "nut",
-    audioSrc: "deez-nuts-sound-effect-free-download-hd-",
+    audioSrc: myinstantsSound("deez-nuts-sound-effect-free-download-hd-"),
     imageSrc: "nut.png",
   },
 
-  { name: "roblox", audioSrc: "roblox-death-sound_1", imageSrc: "roblox.png" },
+  {
+    name: "roblox",
+    audioSrc: myinstantsSound("roblox-death-sound_1"),
+    imageSrc: "roblox.png",
+  },
 
-  { name: "windows", audioSrc: "erro", imageSrc: "windows.jpg" },
+  {
+    name: "windows",
+    audioSrc: myinstantsSound("erro"),
+    imageSrc: "windows.jpg",
+  },
 
-  { name: "fbi", audioSrc: "fbi-open-up-sfx", imageSrc: "fbi.png" },
+  {
+    name: "fbi",
+    audioSrc: myinstantsSound("fbi-open-up-sfx"),
+    imageSrc: "fbi.png",
+  },
 
   {
     name: "dog",
-    audioSrc: "yt1s_wU4BGgD",
+    audioSrc: myinstantsSound("yt1s_wU4BGgD"),
     imageSrc: "dog.jpeg",
   },
 
   {
     name: "chewbacca",
-    audioSrc: "chewbacca.swf",
+    audioSrc: myinstantsSound("chewbacca.swf"),
     imageSrc: "chewbacca.jpg",
   },
 
-  { name: "amongus", audioSrc: "among", imageSrc: "amongus.jpg" },
+  {
+    name: "amongus",
+    audioSrc: myinstantsSound("among"),
+    imageSrc: "amongus.jpg",
+  },
 
-  { name: "dababy", audioSrc: "dababy-suge-lyrics-1", imageSrc: "dababy.jpg" },
+  {
+    name: "dababy",
+    audioSrc: myinstantsSound("dababy-suge-lyrics-1"),
+    imageSrc: "dababy.jpg",
+  },
 ];
 
 for (let i = 0; i < sounds.length; i++) {
   addSound(sounds[i].name, sounds[i].audioSrc, sounds[i].imageSrc);
 }
-const gameState = [3, 2, 6, 0, 7, 8, 4, 1, 5];
+const gameState = [];
 
-function playSounds(currentGameStateIndex) {
-  // //if (soundID > sounds.length - 1) {
-  //   return;
-  // }
+function playGameState(currentGameStateIndex) {
+  if (currentGameStateIndex > gameState.length - 1) {
+    state = "input";
+    displayDebug();
+    return;
+  }
   const sound = sounds[gameState[currentGameStateIndex]];
   const audio = new Audio(
     `https://www.myinstants.com/media/sounds/${sound.audioSrc}.mp3`
@@ -81,18 +120,38 @@ function playSounds(currentGameStateIndex) {
   audio.play();
   audio.onended = () => {
     button.style.backgroundColor = "white";
-    setTimeout(playSounds, 1000, currentGameStateIndex + 1);
+    setTimeout(playGameState, 1000, currentGameStateIndex + 1);
   };
+
+  displayDebug();
 }
 
-function gameState() {
-  document.getElementById("game");
-}
+document.getElementById("game").addEventListener("click", (e) => {
+  gameState.push(generateNextSoundIndex());
+  displayDebug();
+});
 
-function generateNextSound() {
-  return sounds[Math.floor(Math.random() * sounds.length)];
+function generateNextSoundIndex() {
+  return Math.floor(Math.random() * sounds.length);
 }
 
 document.getElementById("start").addEventListener("click", (e) => {
-  playSounds(0);
+  state = "playing";
+  playGameState();
 });
+
+function displayDebug() {
+  const debug = document.getElementById("debug");
+  debug.innerHTML = "";
+  let p;
+
+  p = document.createElement("p");
+  p.innerText = `Game state: [${gameState.join(",")}]`;
+  debug.appendChild(p);
+
+  p = document.createElement("p");
+  p.innerText = `State: ${state}`;
+  debug.appendChild(p);
+}
+
+displayDebug();
