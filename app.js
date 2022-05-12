@@ -109,9 +109,7 @@ function playGameState(currentGameStateIndex) {
     return;
   }
   const sound = sounds[gameState[currentGameStateIndex]];
-  const audio = new Audio(
-    `https://www.myinstants.com/media/sounds/${sound.audioSrc}.mp3`
-  );
+  const audio = new Audio(sound.audioSrc);
   audio.volume = 0.25;
 
   const button = document.getElementById(sound.name);
@@ -137,7 +135,7 @@ function generateNextSoundIndex() {
 
 document.getElementById("start").addEventListener("click", (e) => {
   state = "playing";
-  playGameState();
+  playGameState(0);
 });
 
 function displayDebug() {
