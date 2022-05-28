@@ -1,5 +1,6 @@
 let state = "start";
-const gameState = [];
+let gameState = [];
+let currentGameStateIndex = 0;
 
 function addSound(name, audioSrc, imageSrc) {
   const container = document.createElement("div");
@@ -26,13 +27,26 @@ function addSound(name, audioSrc, imageSrc) {
 
       buttonAudio.play();
       buttonAudio.onended = () => {
-        button.style.backgroundColor = "white";
+        button.style.backgroundColor = "";
       };
     }
 
     if (state === "input") {
       const expectedSound = sounds[gameState[currentGameStateIndex]];
-      alert("you have lost!");
+
+      const isExpectedSound = expectedSound.name === name;
+
+      if (expectedSound) {
+        currentGameStateIndex += 1;
+        if (currentGameStateIndex === gameState.length) {
+          alert("Winner!");
+        }
+      } else {
+        alert("Incorrect");
+        gameState = [];
+        state = "start";
+        currentGameStateIndex = 0;
+      }
     }
 
     displayDebug();
@@ -53,9 +67,9 @@ const sounds = [
   },
 
   {
-    name: "nut",
-    audioSrc: myinstantsSound("deez-nuts-sound-effect-free-download-hd-"),
-    imageSrc: "nut.png",
+    name: "grandmas",
+    audioSrc: myinstantsSound("100-grandmas"),
+    imageSrc: "grandmas.jpg",
   },
 
   {
@@ -66,7 +80,7 @@ const sounds = [
 
   {
     name: "windows",
-    audioSrc: myinstantsSound("erro"),
+    audioSrc: myinstantsSound("preview_4"),
     imageSrc: "windows.jpg",
   },
 
@@ -83,9 +97,9 @@ const sounds = [
   },
 
   {
-    name: "chewbacca",
-    audioSrc: myinstantsSound("chewbacca.swf"),
-    imageSrc: "chewbacca.jpg",
+    name: "owen",
+    audioSrc: myinstantsSound("wow-owen-wilson-sound-effect-download-1"),
+    imageSrc: "owen.jpg",
   },
 
   {
@@ -105,7 +119,7 @@ for (let i = 0; i < sounds.length; i++) {
   addSound(sounds[i].name, sounds[i].audioSrc, sounds[i].imageSrc);
 }
 
-function playGameState(currentGameStateIndex) {
+function playGameState() {
   if (currentGameStateIndex > gameState.length - 1) {
     currentGameStateIndex = 0;
     state = "input";
@@ -122,8 +136,8 @@ function playGameState(currentGameStateIndex) {
   audio.play();
   audio.onended = () => {
     currentGameStateIndex += 1;
-    button.style.backgroundColor = "white";
-    setTimeout(playGameState, 500, currentGameStateIndex + 1);
+    button.style.backgroundColor = "";
+    setTimeout(playGameState, 500);
   };
 
   displayDebug();
@@ -144,17 +158,23 @@ document.getElementById("start").addEventListener("click", (e) => {
 });
 
 function displayDebug() {
-  const debug = document.getElementById("debug");
-  debug.innerHTML = "";
-  let p;
+  const debugElement = document.getElementById("debug");
+  debugElement.innerHTML = "";
 
-  p = document.createElement("p");
-  p.innerText = `Game state: [${gameState.join(",")}]`;
-  debug.appendChild(p);
+  const outputs = {};
 
-  p = document.createElement("p");
-  p.innerText = `State: ${state}`;
-  debug.appendChild(p);
+  const debug = (title, value) => {
+    outputs[title] = value;
+    const p = document.createElement("p");
+    p.innerHTML = `${title}: ${value}`;
+    debugElement.appendChild(p);
+  };
+
+  debug("Game State", `[$gameState.join(",")}]`);
+  debug("sate", state);
+  debug("Current game state index", currentGameStateIndex);
+
+  console.table(outputs);
 }
 
 displayDebug();

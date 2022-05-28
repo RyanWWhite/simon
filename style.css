@@ -34,7 +34,6 @@ body {
   margin: 1rem;
   transition: all 0.5s ease;
   transform: scale(1);
-  background-color: white;
 }
 
 .btn img {
@@ -73,4 +72,40 @@ body {
 .button:active {
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+#minecraft {
+  background-color: rgb(235, 238, 170);
+}
+
+#grandmas {
+  background-color: rgb(131, 237, 114);
+}
+
+#roblox {
+  background-color: rgb(223, 127, 240);
+}
+
+#windows {
+  background-color: rgb(171, 114, 123);
+}
+
+#fbi {
+  background-color: rgb(29, 27, 27);
+}
+
+#dog {
+  background-color: rgb(112, 132, 78);
+}
+
+#owen {
+  background-color: rgb(101, 190, 155);
+}
+
+#amongus {
+  background-color: rgb(255, 217, 0);
+}
+
+#dababy {
+  background-color: rgb(86, 69, 178);
 }
