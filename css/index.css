@@ -1,0 +1,15 @@
+body {
+    /* background-color: blue; */
+}
+
+nav#main-navbar {background-color: red;}
+
+main {margin-top: 20px;
+margin-bottom: 20px;
+min-height: 500px;}
+
+div.simon-tile {
+    background-color: red;
+    border-style: solid;
+    border-color: black;
+}
