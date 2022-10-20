@@ -36,7 +36,7 @@ function addSound(name, audioSrc, imageSrc) {
 
       const isExpectedSound = expectedSound.name === name;
 
-      if (expectedSound) {
+      if (isExpectedSound) {
         currentGameStateIndex += 1;
         if (currentGameStateIndex === gameState.length) {
           alert("Winner!");
@@ -69,7 +69,7 @@ const sounds = [
   {
     name: "grandmas",
     audioSrc: myinstantsSound("100-grandmas"),
-    imageSrc: "grandmas.jpg",
+    imageSrc: "grandmas.png",
   },
 
   {
@@ -81,7 +81,7 @@ const sounds = [
   {
     name: "windows",
     audioSrc: myinstantsSound("preview_4"),
-    imageSrc: "windows.jpg",
+    imageSrc: "windows.png",
   },
 
   {
@@ -93,25 +93,25 @@ const sounds = [
   {
     name: "dog",
     audioSrc: myinstantsSound("yt1s_wU4BGgD"),
-    imageSrc: "dog.jpeg",
+    imageSrc: "dog.png",
   },
 
   {
     name: "owen",
     audioSrc: myinstantsSound("wow-owen-wilson-sound-effect-download-1"),
-    imageSrc: "owen.jpg",
+    imageSrc: "owen.png",
   },
 
   {
     name: "amongus",
     audioSrc: myinstantsSound("among"),
-    imageSrc: "amongus.jpg",
+    imageSrc: "amongus.png",
   },
 
   {
     name: "dababy",
     audioSrc: myinstantsSound("dababy-suge-lyrics-1"),
-    imageSrc: "dababy.jpg",
+    imageSrc: "dababy.png",
   },
 ];
 
