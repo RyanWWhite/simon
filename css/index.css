@@ -1,0 +1,51 @@
+body {
+  /* background-color: blue; */
+}
+
+nav#main-navbar {
+  background-color: red;
+}
+
+main {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  min-height: 500px;
+}
+
+div#simon-tiles-parent {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 700px;
+}
+
+div.simon-tile {
+  border-style: solid;
+  border-color: black;
+  height: 350px;
+  width: 350px;
+}
+
+div.simon-tile-left-top-corner {
+  background-color: red;
+  border-radius: 350px 0px 0px 0px;
+  cursor: pointer;
+}
+
+div.simon-tile-right-top-corner {
+  background-color: orange;
+  border-radius: 0px 350px 0px 0px;
+  cursor: pointer;
+}
+
+div.simon-tile-left-bottom-corner {
+  background-color: blue;
+  border-radius: 0px 0px 0px 350px;
+  cursor: pointer;
+}
+
+div.simon-tile-right-bottom-corner {
+  background-color: green;
+  border-radius: 0px 0px 350px 0px;
+  cursor: pointer;
+}
