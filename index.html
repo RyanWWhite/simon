@@ -76,12 +76,57 @@
     </header>
 
     <main class="container">
-      <div class="grid text-center" style="--bs-columns: 12; --bs-rows: 2">
-        <div class="simon-tile g-col-6">1</div>
-        <div class="simon-tile g-col-6">2</div>
+      <div class="text-center my-5">
+        <div class="row">
+          <div class="col-6">Text describing the game.</div>
+          <div class="col-6">
+            <button
+              type="button"
+              id="start-button"
+              class="btn btn-outline-danger btn-lg"
+            >
+              Start game
+            </button>
 
-        <div class="simon-tile g-col-6">3</div>
-        <div class="simon-tile g-col-6">4</div>
+            <button
+              type="button"
+              id="repeat-button"
+              class="btn btn-outline-danger btn-lg"
+            >
+              Repeat
+            </button>
+
+            <button
+              type="button"
+              id="validate-button"
+              class="btn btn-outline-danger btn-lg"
+            >
+              Validate
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="simon-tiles-parent">
+        <div class="row">
+          <div
+            class="col-6 simon-tile simon-tile-left-top-corner"
+            id="left-top"
+          ></div>
+          <div
+            class="col-6 simon-tile simon-tile-right-top-corner"
+            id="right-top"
+          ></div>
+        </div>
+        <div class="row">
+          <div
+            class="col-6 simon-tile simon-tile-left-bottom-corner"
+            id="left-bottom"
+          ></div>
+          <div
+            class="col-6 simon-tile simon-tile-right-bottom-corner"
+            id="right-bottom"
+          ></div>
+        </div>
       </div>
     </main>
 
