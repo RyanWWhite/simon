@@ -80,29 +80,39 @@
         <div class="row">
           <div class="col-6">Text describing the game.</div>
           <div class="col-6">
-            <button
-              type="button"
-              id="start-button"
-              class="btn btn-outline-danger btn-lg"
-            >
-              Start game
-            </button>
-
-            <button
-              type="button"
-              id="repeat-button"
-              class="btn btn-outline-danger btn-lg"
-            >
-              Repeat
-            </button>
-
-            <button
-              type="button"
-              id="validate-button"
-              class="btn btn-outline-danger btn-lg"
-            >
-              Validate
-            </button>
+            <div class="form-group row">
+              <div class="col-5">
+                <label for="steps">Enter number of steps in sequence</label>
+                <input class="form-control" id="steps" value="2" />
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  id="start-button"
+                  class="btn btn-outline-danger btn-lg"
+                >
+                  Start game
+                </button>
+              </div>
+              <div class="col-2">
+                <button
+                  type="button"
+                  id="repeat-button"
+                  class="btn btn-outline-danger btn-lg"
+                >
+                  Repeat
+                </button>
+              </div>
+              <div class="col-2">
+                <button
+                  type="button"
+                  id="validate-button"
+                  class="btn btn-outline-danger btn-lg"
+                >
+                  Validate
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
